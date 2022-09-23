@@ -32,15 +32,17 @@ namespace биллиг1
         {
              list.RemoveAll(p => p<begin);            
         }
-        public static int MaxDiff1(List<int> list)
+        public static int[] MaxDiff1(List<int> list)
         {
-            int Diff = 0;
+            int[] Diff = new int[3] {0,0,0};
 
             for (int i = 0; i < list.Count-1; i++)
             {
-                if(Diff < list[i + 1] - list[i])
+                if(Diff[0] < list[i + 1] - list[i])
                 {
-                    Diff = list[i + 1] - list[i];
+                    Diff[0] = list[i + 1] - list[i];
+                    Diff[1] = list[i + 1];  
+                    Diff[2] = list[i];
                 }
 
             }

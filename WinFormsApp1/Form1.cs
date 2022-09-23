@@ -44,9 +44,9 @@ namespace WinFormsApp1
                 if (maxnum > 10000 || minnum > 10000) throw new OverflowException();
                 List<int> Simp = Eratosfen(maxnum);
                 Filter(Simp, minnum);
-                int Diff= MaxDiff1(Simp);
+                int[] Diff= MaxDiff1(Simp);
                 Result.Text = String.Join(",",Simp);
-                MaxDiff.Text = Diff.ToString();
+                MaxDiff.Text = $"{Diff[0]}({Diff[2]}-{Diff[1]})";
             }
             catch (FormatException )
             {

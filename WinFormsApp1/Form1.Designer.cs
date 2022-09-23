@@ -68,25 +68,25 @@
             // 
             // MaxCount
             // 
-            this.MaxCount.Enabled = false;
             this.MaxCount.Location = new System.Drawing.Point(59, 344);
             this.MaxCount.Name = "MaxCount";
+            this.MaxCount.ReadOnly = true;
             this.MaxCount.Size = new System.Drawing.Size(100, 23);
             this.MaxCount.TabIndex = 3;
             // 
             // MinCount
             // 
-            this.MinCount.Enabled = false;
             this.MinCount.Location = new System.Drawing.Point(205, 344);
             this.MinCount.Name = "MinCount";
+            this.MinCount.ReadOnly = true;
             this.MinCount.Size = new System.Drawing.Size(100, 23);
             this.MinCount.TabIndex = 4;
             // 
             // MaxDiff
             // 
-            this.MaxDiff.Enabled = false;
             this.MaxDiff.Location = new System.Drawing.Point(358, 344);
             this.MaxDiff.Name = "MaxDiff";
+            this.MaxDiff.ReadOnly = true;
             this.MaxDiff.Size = new System.Drawing.Size(100, 23);
             this.MaxDiff.TabIndex = 5;
             // 
