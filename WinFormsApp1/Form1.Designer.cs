@@ -35,14 +35,17 @@
             this.MinCount = new System.Windows.Forms.TextBox();
             this.MaxDiff = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Result
             // 
-            this.Result.Enabled = false;
             this.Result.Location = new System.Drawing.Point(59, 54);
             this.Result.Multiline = true;
             this.Result.Name = "Result";
+            this.Result.ReadOnly = true;
+            this.Result.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Result.Size = new System.Drawing.Size(399, 228);
             this.Result.TabIndex = 0;
@@ -61,6 +64,7 @@
             this.MinNum.Name = "MinNum";
             this.MinNum.Size = new System.Drawing.Size(100, 23);
             this.MinNum.TabIndex = 2;
+            this.MinNum.TextChanged += new System.EventHandler(this.MinNum_TextChanged);
             // 
             // MaxCount
             // 
@@ -96,11 +100,31 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(487, 71);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(128, 15);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Максимальное число";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(487, 156);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(124, 15);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Минимальное число";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.MaxDiff);
             this.Controls.Add(this.MinCount);
@@ -124,5 +148,7 @@
         private System.Windows.Forms.TextBox MinCount;
         private System.Windows.Forms.TextBox MaxDiff;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

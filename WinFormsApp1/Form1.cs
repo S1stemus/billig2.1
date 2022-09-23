@@ -25,26 +25,52 @@ namespace WinFormsApp1
                 int maxnum = int.Parse(MaxNum.Text);
                 int minnum = int.Parse(MinNum.Text);
                 if (maxnum <= 0 || minnum <= 0) throw new IndexOutOfRangeException();
+                if (maxnum < minnum)
+                {
+                    DialogResult dialogResult = MessageBox.Show("Изменить?", "Максимальное значение меньше минимального", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        int tmp = maxnum;
+                        maxnum = minnum;
+                        minnum = tmp;
+                        MaxNum.Text = maxnum.ToString();
+                        MinNum.Text = minnum.ToString();
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+                if (maxnum > 10000 || minnum > 10000) throw new OverflowException();
                 List<int> Simp = Eratosfen(maxnum);
                 Filter(Simp, minnum);
+                int Diff= MaxDiff1(Simp);
+                Result.Text = String.Join(",",Simp);
+                MaxDiff.Text = Diff.ToString();
             }
             catch (FormatException )
             {
-                Result.Text = "Не туда воюешь";
+                Result.Text = "Вводите только числа";
             }
             catch (OverflowException)
             {
-                Result.Text = "Введите число которое больше нуля";
+                Result.Text = "Введено слишком большое число";
             }
             catch (IndexOutOfRangeException)
             {
                 Result.Text = "Введите число которое больше нуля";
             }
+            
 
 
         }
 
         private void MaxNum_TextChanged(object sender, EventArgs e)
+        {
+            Result.Text = "";
+        }
+
+        private void MinNum_TextChanged(object sender, EventArgs e)
         {
             Result.Text = "";
         }

@@ -30,7 +30,7 @@ namespace биллиг1
         }
         public static void Filter(List<int>list,int begin)
         {
-             list.RemoveAll(p => p<begin );            
+             list.RemoveAll(p => p<begin);            
         }
         public static int MaxDiff1(List<int> list)
         {
@@ -46,6 +46,35 @@ namespace биллиг1
             }
             return Diff; 
         }
+        public static int[] MaxSimpleNum(List<int> list)
+        {
+            int[] nums = new int[2] {0,1};
+            int count = 0;                        
+            for (int i = 1; i < (list.Count/10)+1; i++)
+            {
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (list[j] < i * 10 || list[j] > (i - 1) * 10) count++;
+                }
+                if(nums[0]<count)nums[0] = count;nums[1] = i;
+            }
+            return nums;
+        }
+        public static int[] MinSimpleNum(List<int> list)
+        {
+            int[] nums = new int[2] { 9, 1 };
+            int count = 0;
+            for (int i = 1; i < (list.Count / 10) + 1; i++)
+            {
+                for (int j = 0; j < list.Count; j++)
+                {
+                    if (list[j] < i * 10 || list[j] > (i - 1) * 10) count++;
+                }
+                if (nums[0] > count) nums[0] = count; nums[1] = i;
+            }
+            return nums;
+        }
+
 
 
 
